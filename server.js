@@ -1,71 +1,13 @@
 var express = require('express');
-const bodyParser = require('body-parser');
 const app = express();
-const path = require('path');
-const http = require('http');
-var cookieParser = require('cookie-parser');
-var session      = require('express-session');
-var passport = require('passport');
 
-// var db = mongoose.connect('mongodb://chrismzyy@hotmail.com:135246Abcd@ds263847.mlab.com:63847/heroku_khn0t993');
+e(express.static(__dirname+'/dist'));
 
-// var connectionString = 'mongodb://yiyangzhang:135246abcd@ds263847.mlab.com:63847/heroku_khn0t993';
-var connectionString = 'mongodb://localhost:27017/webdev';
-var mongoose = require("mongoose");
-
-mongoose.createConnection(connectionString);
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
-var secret = 'This is a secret';
-if (process.env.SESSION_SECRET) {
-  secret = process.env.SESSION_SECRET;
-}
-app.use(cookieParser());
-app.use(session({ secret: secret, resave: true, saveUninitialized: true }));
-
-app.use(passport.initialize());
-app.use(passport.session());
-
-app.use(express.static(path.join(__dirname, 'dist')));
-app.use(express.static(path.join(__dirname, 'src/assets')));
-
-// app.use(cookieParser());
-// app.use(session({ secret: process.env.SESSION_SECRET }));
-
-// var baseUrl = "http://localhost:4200";
-var baseUrl = "https://yueyunfe.herokuapp.com"
-
-//CORS
-app.use(function(reg, res, next){
-  res.header("Access-Control-Allow-Origin", baseUrl);
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE, OPTIONS');
-  res.header("Access-Control-Allow-Credentials", "true");
-  next();
+l('*',(req,res)=>{
+  status(200).sendFile(__dirname + '/dist/index.html');
 })
 
 
-const port=process.env.PORT || '5000';
-app.set('port', port);
 
-// Create HTTP server
-const server = http.createServer(app);
+sten(process.env.PORT || '8080');
 
-// var mongoose = require('mongoose');
-//
-// // this is haruko conncection
-// // var db = mongoose.connect('mongodb://<dbuser>:<dbpassword>@ds263847.mlab.com:63847/heroku_khn0t993');
-// var db = mongoose.connect('mongodb://localhost:27017/webdev');
-
-require("./assignment/app.js")(app);
-
-// For Build: Catch all other routes and return the index file -- BUILDINg
-app.get('*', function (req, res) {
-  res.sendFile(path.join(__dirname, 'dist/index.html'));
-});
-
-
-server.listen( port , function() {
-  console.log('Node app is running on port', app.get('port'))});
