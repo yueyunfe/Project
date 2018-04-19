@@ -1,10 +1,10 @@
 var express = require('express');
 const app = express();
 
-e(express.static(__dirname+'/dist'));
+app.use(express.static(__dirname+'/dist'));
 
-l('*',(req,res)=>{
-  status(200).sendFile(__dirname + '/dist/index.html');
+app.all('*',(req,res)=>{
+  res.status(200).sendFile(__dirname + '/dist/index.html');
 })
 
 
