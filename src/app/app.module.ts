@@ -16,6 +16,15 @@ import { HomepageComponent } from './views/homepage/homepage.component';
 import { LoginComponent } from './views/login/login.component';
 import {routing} from './app.routing';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {AngularFireModule} from 'angularfire2';
+import {AngularFireDatabaseModule} from 'angularfire2/database';
+import {AngularFireAuthModule} from 'angularfire2/auth';
+import {environment} from '../environments/environment';
+import { GoodsformComponent } from './views/seller/goodsform/goodsform.component';
+import {AuthGuardService} from './services/auth-guard.service';
+import {AuthService} from './services/auth.service';
+import {UserService} from './services/user.service';
+import {AuthGuardSellerService} from './services/auth-guard-seller.service';
 
 
 
@@ -31,14 +40,18 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     GoodsComponent,
     OrdersComponent,
     HomepageComponent,
-    LoginComponent
+    LoginComponent,
+    GoodsformComponent
   ],
   imports: [
     BrowserModule,
     routing,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
-  providers: [],
+  providers: [AuthGuardService, AuthService, UserService, AuthGuardSellerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
