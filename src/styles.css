@@ -1,7 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
-
-
-
 body{
   padding-top: 90px;
 }
@@ -13,41 +10,3 @@ body{
 .dropdown-toggle{
   cursor: pointer;
 }
-
-.card-footer{
-  padding: 0;
-}
-
-.card{
-  margin-bottom: 20px;
-}
-
-.list-group-item.active {
-  background-color: dodgerblue;
-  border-color: #c1d62e;
-}
-
-.btn-primary {
-  background-color: dodgerblue;
-  border-color: dodgerblue;
-}
-
-.btn-secondary {
-  background-color: cadetblue;
-  border-color: dodgerblue;
-}
-
-.btn-primary:hover {
-  background-color: #b1c522;
-  border-color: #b1c522;
-}
-
-.btn-primary.disabled, .btn-primary:disabled {
-  background-color: dodgerblue;
-  border-color: dodgerblue;
-}
-
-.form-control:focus {
-  border-color: #c1d62e;
-}
-
