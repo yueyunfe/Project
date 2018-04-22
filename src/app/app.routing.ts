@@ -13,9 +13,12 @@ import {OrdersComponent} from './views/seller/orders/orders.component';
 import {ModuleWithProviders} from '@angular/core';
 import {AuthGuardService} from './services/auth-guard.service';
 import {AuthGuardSellerService} from './services/auth-guard-seller.service';
+import {GoodsformComponent} from './views/seller/goodsform/goodsform.component';
+import {FlickrImageSearchComponent} from './views/flickr-image-search/flickr-image-search.component';
+import {PixabayImageSearchComponent} from './views/pixabay-image-search/pixabay-image-search.component';
 
 const APP_ROUTES: Routes = [
-  {path: '', component: HomepageComponent},
+  {path: '', component: ProductsComponent},
   {path: 'products', component: ProductsComponent},
   {path: 'cart', component: CartComponent},
   {path: 'checkout', component: CheckoutComponent, canActivate: [AuthGuardService]},
@@ -23,6 +26,11 @@ const APP_ROUTES: Routes = [
   {path: 'myorder', component: MyorderComponent, canActivate: [AuthGuardService]},
   {path: 'login', component: LoginComponent},
   {path: 'seller/goods', component: GoodsComponent, canActivate: [AuthGuardService, AuthGuardSellerService]},
+  {path: 'seller/goodsform', component: GoodsformComponent, canActivate: [AuthGuardService, AuthGuardSellerService]},
+  {path: 'seller/goods/new', component: GoodsformComponent, canActivate: [AuthGuardService, AuthGuardSellerService]},
+  // {path: 'seller/goods/new/search', component: FlickrImageSearchComponent, canActivate: [AuthGuardService, AuthGuardSellerService]},
+  {path: 'seller/goods/new/search', component: PixabayImageSearchComponent, canActivate: [AuthGuardService, AuthGuardSellerService]},
+  {path: 'seller/goods/:id', component: GoodsformComponent, canActivate: [AuthGuardService, AuthGuardSellerService]},
   {path: 'seller/orders', component: OrdersComponent, canActivate: [AuthGuardService, AuthGuardSellerService]},
 ];
 
