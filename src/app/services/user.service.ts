@@ -10,10 +10,19 @@ export class UserService {
   constructor(private db: AngularFireDatabase) {
   }
 
-  save(user: fire.User) {
+  save(user: fire.User, displayname?) {
+    user.updateProfile(displayname);
     this.db.object('/users/' + user.uid).update({
       name: user.displayName,
       email: user.email
+    });
+  }
+
+  registerNewUser(user: fire.User, displayname, isSeller) {
+    this.db.object('/users/' + user.uid).update({
+      email: user.email,
+      isSeller: isSeller,
+      name: displayname
     });
   }
 

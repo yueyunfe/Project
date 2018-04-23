@@ -42,6 +42,8 @@ import {FlickrService} from './services/flickr.service';
 import {HttpModule} from '@angular/http';
 import {PixabayImageSearchComponent} from './views/pixabay-image-search/pixabay-image-search.component';
 import {PixabayService} from './services/pixabay.service';
+import { OrderDetailsComponent } from './views/order-details/order-details.component';
+import { RegisterComponent } from './views/register/register.component';
 
 
 @NgModule({
@@ -64,7 +66,9 @@ import {PixabayService} from './services/pixabay.service';
     ItemSummaryComponent,
     ShippingComponent,
     FlickrImageSearchComponent,
-    PixabayImageSearchComponent
+    PixabayImageSearchComponent,
+    OrderDetailsComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

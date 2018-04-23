@@ -1,0 +1,29 @@
+<span><h1>Order Summary</h1><h3>{{dates.$value | date}} by {{shipping.name}} </h3></span>
+<p></p>
+<table class="table">
+  <thead>
+  <tr>
+    <th>Items</th>
+    <th>Quantity</th>
+    <th>Total Price</th>
+  </tr>
+  </thead>
+  <tbody>
+
+  <tr *ngFor="let item of items">
+
+    <td>{{ item.product.title }}</td>
+    <td>{{ item.quantity}}</td>
+    <td>
+      {{ item.totalPrice}}
+    </td>
+  </tr>
+  <p></p>
+  <h3>Shipping to :</h3>
+  <p>{{shipping.addressLine1+' '+ shipping.addressLine2}}</p>
+  <p>City : {{shipping.city}}</p>
+
+
+
+  </tbody>
+</table>

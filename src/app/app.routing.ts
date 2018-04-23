@@ -16,6 +16,7 @@ import {AuthGuardSellerService} from './services/auth-guard-seller.service';
 import {GoodsformComponent} from './views/seller/goodsform/goodsform.component';
 import {FlickrImageSearchComponent} from './views/flickr-image-search/flickr-image-search.component';
 import {PixabayImageSearchComponent} from './views/pixabay-image-search/pixabay-image-search.component';
+import {RegisterComponent} from './views/register/register.component';
 
 const APP_ROUTES: Routes = [
   {path: '', component: ProductsComponent},
@@ -25,6 +26,7 @@ const APP_ROUTES: Routes = [
   {path: 'feedback', component: FeedbackComponent, canActivate: [AuthGuardService]},
   {path: 'myorder', component: MyorderComponent, canActivate: [AuthGuardService]},
   {path: 'login', component: LoginComponent},
+  {path: 'register', component: RegisterComponent},
   {path: 'seller/goods', component: GoodsComponent, canActivate: [AuthGuardService, AuthGuardSellerService]},
   {path: 'seller/goodsform', component: GoodsformComponent, canActivate: [AuthGuardService, AuthGuardSellerService]},
   {path: 'seller/goods/new', component: GoodsformComponent, canActivate: [AuthGuardService, AuthGuardSellerService]},

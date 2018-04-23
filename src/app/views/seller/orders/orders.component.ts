@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {OrderService} from '../../../services/order.service';
+import {async} from 'rxjs/scheduler/async';
+import 'rxjs/add/operator/take';
 
 @Component({
   selector: 'app-orders',
@@ -16,4 +18,7 @@ export class OrdersComponent implements OnInit {
   ngOnInit() {
   }
 
+  viewOrder(order) {
+    localStorage.setItem('order', order.$key);
+  }
 }
