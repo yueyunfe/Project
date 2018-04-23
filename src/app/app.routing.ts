@@ -17,6 +17,7 @@ import {GoodsformComponent} from './views/seller/goodsform/goodsform.component';
 import {FlickrImageSearchComponent} from './views/flickr-image-search/flickr-image-search.component';
 import {PixabayImageSearchComponent} from './views/pixabay-image-search/pixabay-image-search.component';
 import {RegisterComponent} from './views/register/register.component';
+import {OrderDetailsComponent} from './views/order-details/order-details.component';
 
 const APP_ROUTES: Routes = [
   {path: '', component: ProductsComponent},
@@ -25,6 +26,7 @@ const APP_ROUTES: Routes = [
   {path: 'checkout', component: CheckoutComponent, canActivate: [AuthGuardService]},
   {path: 'feedback', component: FeedbackComponent, canActivate: [AuthGuardService]},
   {path: 'myorder', component: MyorderComponent, canActivate: [AuthGuardService]},
+  {path: 'order/details', component: OrderDetailsComponent, canActivate: [AuthGuardService]},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'seller/goods', component: GoodsComponent, canActivate: [AuthGuardService, AuthGuardSellerService]},
